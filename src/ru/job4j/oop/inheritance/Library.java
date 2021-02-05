@@ -15,7 +15,7 @@ public class Library {
         books[3] = book4;
 
         for (Book boo : books) {
-            System.out.println(boo.name + " - " + boo.pages);
+            System.out.println(boo.getName() + " - " + boo.getPages());
         }
 
         Book temp = books[0];
@@ -23,12 +23,12 @@ public class Library {
         books[3] = temp;
 
         for (Book boo : books) {
-            System.out.println(boo.name + " - " + boo.pages);
+            System.out.println(boo.getName() + " - " + boo.getPages());
         }
 
         for (Book boo : books) {
-            if ("Clean code".equals(boo.name)) {
-                System.out.println(boo.name + " - " + boo.pages);
+            if ("Clean code".equals(boo.getName())) {
+                System.out.println(boo.getName() + " - " + boo.getPages());
             }
         }
     }
