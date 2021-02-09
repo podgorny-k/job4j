@@ -2,8 +2,8 @@ package ru.job4j.oop.polymorphism;
 
 public class Bus implements Transport {
 
-    int occupiedPlaces;
-    int speed;
+    private int occupiedPlaces;
+    private int speed;
 
     @Override
     public void drive() {
