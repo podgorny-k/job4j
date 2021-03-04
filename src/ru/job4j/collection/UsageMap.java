@@ -13,5 +13,10 @@ public class UsageMap {
             String value = entry.getValue();
             System.out.println(key + " = " + value);
         }
+
+        for (String key : map.keySet()) {
+            String value = map.get(key);
+            System.out.println(key + " = " + value);
+        }
     }
 }
