@@ -15,7 +15,7 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User usr = findByPassport(passport);
-        if (!users.get(usr).contains(account)) {
+        if (usr != null && !users.get(usr).contains(account)) {
             users.get(usr).add(account);
         }
     }
@@ -51,7 +51,7 @@ public class BankService {
         boolean rsl = true;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount.getBalance() < amount) {
+        if (srcAccount == null || destAccount == null || srcAccount.getBalance() < amount) {
             rsl = false;
         } else {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
