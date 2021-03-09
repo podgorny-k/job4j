@@ -5,14 +5,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Класс описывает работу со счетами клиентов
+ *
+ * @author Podgorny K
+ */
 public class BankService {
 
     private Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод добавления пользователя в систему
+     *
+     * @param user добавляемый пользователь
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
+    /**
+     * Метод добавления нового счета пользователю
+     *
+     * @param passport номер паспорта
+     * @param account  новый счет
+     */
     public void addAccount(String passport, Account account) {
         User usr = findByPassport(passport);
         if (usr != null && !users.get(usr).contains(account)) {
@@ -20,6 +36,12 @@ public class BankService {
         }
     }
 
+    /**
+     * Метод для поиска пользователя по номеру паспорта
+     *
+     * @param passport номер паспорта
+     * @return искомый пользователь
+     */
     public User findByPassport(String passport) {
         User rsl = null;
         for (User user : users.keySet()) {
@@ -31,6 +53,13 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * Метод для поиска пользователя по реквизитам
+     *
+     * @param passport  номер паспорта
+     * @param requisite реквизиты
+     * @return искомый пользователь
+     */
     public Account findByRequisite(String passport, String requisite) {
         Account rsl = null;
         User usr = findByPassport(passport);
@@ -45,6 +74,16 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * Метод для перечисления денег между счетами
+     *
+     * @param srcPassport   номер паспорта отпрвителя
+     * @param srcRequisite  реквизиты отпрвителя
+     * @param destPassport  номер паспорта получателя
+     * @param destRequisite реквизиты получателя
+     * @param amount        сумма перевода
+     * @return результат перевода суммы
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
 
