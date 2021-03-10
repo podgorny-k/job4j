@@ -44,7 +44,7 @@ public class JobTest {
     public void whenComparatorByAscPriorityAndDescName() {
         Comparator<Job> cmpPriorityName = new JobAscByPriority().thenComparing(new JobDescByName());
         int rsl = cmpPriorityName.compare(
-                new Job("Impl task", 0),
+                new Job("Impl task", 1),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(0));
@@ -54,7 +54,7 @@ public class JobTest {
     public void whenComparatorByDescPriorityAndAscName() {
         Comparator<Job> cmpPriorityName = new JobDescByPriority().thenComparing(new JobAscByName());
         int rsl = cmpPriorityName.compare(
-                new Job("Impl task", 0),
+                new Job("Impl task", 1),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, greaterThan(0));
