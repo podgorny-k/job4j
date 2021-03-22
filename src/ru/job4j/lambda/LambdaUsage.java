@@ -1,5 +1,7 @@
 package ru.job4j.lambda;
 
+import java.util.Comparator;
+
 import static java.util.Arrays.sort;
 
 public class LambdaUsage {
@@ -24,5 +26,18 @@ public class LambdaUsage {
         for (String s : numbers) {
             System.out.println(s);
         }
+
+        System.out.println("-------------------");
+
+        String[] names = {
+                "Ivan",
+                "Petr"
+        };
+
+        Comparator<String> lengthCmp = (left, right) -> {
+            System.out.println("execute comparator");
+            return left.length() - right.length();
+        };
+        sort(names, lengthCmp);
     }
 }
