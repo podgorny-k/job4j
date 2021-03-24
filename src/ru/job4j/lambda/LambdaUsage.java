@@ -20,7 +20,7 @@ public class LambdaUsage {
 
         sort(numbers, (left, right) -> {
             System.out.println("compare - " + right.length() + " : " + left.length());
-            return right.length() - left.length();
+            return Integer.compare(right.length(), left.length());
         });
 
         for (String s : numbers) {
