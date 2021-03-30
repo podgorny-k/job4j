@@ -19,8 +19,7 @@ public class JobSorter {
         Collections.sort(jobs);
         System.out.println(jobs);
 
-        Collections.sort(jobs, new SortByNameJob());
-        //jobs.sort(new SortByNameJob());
+        jobs.sort(new SortByNameJob());
         System.out.println(jobs);
 
         Collections.sort(jobs, new JobDescByName().thenComparing(new JobDescByPriority()));
