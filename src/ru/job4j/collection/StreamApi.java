@@ -13,7 +13,7 @@ public class StreamApi {
         num.add(4);
 
         List<Integer> posNum = num.stream()
-                .filter(n -> n % 2 == 0)
+                .filter(n -> n > 0)
                 .collect(Collectors.toList());
     }
 }
