@@ -7,13 +7,13 @@ public class SimpleStringEncoder {
         char symbol = input.charAt(0);
         int counter = 1;
 
-        for (int i = 0; i < input.length() - 1; i++) {
-            if (symbol == input.charAt(i + 1)) {
+        for (int i = 1; i < input.length(); i++) {
+            if (symbol == input.charAt(i)) {
                 counter++;
             } else {
                 result += symbolPlusCounter(symbol, counter);
 
-                symbol = input.charAt(i + 1);
+                symbol = input.charAt(i);
                 counter = 1;
             }
         }
