@@ -10,7 +10,8 @@ class FactorialTest {
     public void whenException() {
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> Factorial.calc(-1));
+                () -> Factorial.calc(-1)
+        );
 
         assertThat(exception.getMessage()).isEqualTo("Number could not be less than 0");
     }
