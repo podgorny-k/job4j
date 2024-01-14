@@ -1,4 +1,6 @@
-package ru.job4j.oop.inheritance;
+package ru.job4j.oop.inheritance.override;
+
+import ru.job4j.oop.inheritance.TextReport;
 
 public class JSONReport extends TextReport {
     @Override
